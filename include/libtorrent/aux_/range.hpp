@@ -44,6 +44,33 @@ namespace libtorrent { namespace aux {
 		Iter end() { return _end; }
 	};
 
+	template <typename Index>
+	struct index_iter
+	{
+		index_iter(Index i) : m_idx(i) {}
+		index_iter operator++()
+		{
+			++m_idx;
+			return *this;
+		}
+		Index operator*() const { return m_idx; }
+		friend inline bool operator==(index_iter lhs, index_iter rhs)
+		{ return lhs.m_idx == rhs.m_idx; }
+		friend inline bool operator!=(index_iter lhs, index_iter rhs)
+		{ return lhs.m_idx != rhs.m_idx; }
+	private:
+		Index m_idx;
+	};
+
+	template <typename Index>
+	struct index_range
+	{
+		Index _begin;
+		Index _end;
+		index_iter<Index> begin() { return {_begin}; }
+		index_iter<Index> end() { return {_end}; }
+	};
+
 	template <typename Iter>
 	iterator_range<Iter> range(Iter begin, Iter end)
 	{ return { begin, end}; }

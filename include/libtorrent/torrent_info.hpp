@@ -342,6 +342,8 @@ namespace libtorrent {
 			TORRENT_ASSERT(m_files.num_pieces() > 0);
 			return piece_index_t(m_files.num_pieces());
 		}
+		aux::index_range<piece_index_t> piece_range() const
+		{ return m_files.piece_range(); }
 
 		// returns the info-hash of the torrent
 		const sha1_hash& info_hash() const { return m_info_hash; }
