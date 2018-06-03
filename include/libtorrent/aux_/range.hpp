@@ -47,7 +47,7 @@ namespace libtorrent { namespace aux {
 	template <typename Index>
 	struct index_iter
 	{
-		index_iter(Index i) : m_idx(i) {}
+		explicit index_iter(Index i) : m_idx(i) {}
 		index_iter operator++()
 		{
 			++m_idx;
@@ -67,8 +67,8 @@ namespace libtorrent { namespace aux {
 	{
 		Index _begin;
 		Index _end;
-		index_iter<Index> begin() { return {_begin}; }
-		index_iter<Index> end() { return {_end}; }
+		index_iter<Index> begin() { return index_iter<Index>{_begin}; }
+		index_iter<Index> end() { return index_iter<Index>{_end}; }
 	};
 
 	template <typename Iter>

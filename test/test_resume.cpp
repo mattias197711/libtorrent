@@ -389,7 +389,9 @@ void test_piece_slots_seed(settings_pack const& sett)
 	TEST_EQUAL(s.info_hash, ti->info_hash());
 	TEST_EQUAL(s.pieces.size(), ti->num_pieces());
 	for (auto const i : ti->piece_range())
+	{
 		TEST_EQUAL(s.pieces[i], true);
+	}
 
 	TEST_EQUAL(s.is_seeding, true);
 
@@ -406,7 +408,9 @@ void test_piece_slots_seed(settings_pack const& sett)
 		TEST_EQUAL(int(pieces.size()), ti->num_pieces());
 
 		for (auto const i : ti->piece_range())
+		{
 			TEST_EQUAL(pieces[i], true);
+		}
 	}
 }
 

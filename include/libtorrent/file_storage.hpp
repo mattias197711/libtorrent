@@ -366,9 +366,9 @@ namespace libtorrent {
 		// returns the index of the one-past-end file in the file storage
 		file_index_t end_file() const noexcept;
 
-		// returns a range of iterator-like objects resolving to the indices of
-		// the files. Is meant to be used in range-for loops to conveniently loop
-		// over all file indices.
+		// returns an implementation-defined type that can be used as the
+		// container in a range-for loop. Where the values are the indices of all
+		// files in the file_storage.
 		aux::index_range<file_index_t> file_range() const noexcept;
 
 		// returns the total number of bytes all the files in this torrent spans
@@ -385,9 +385,9 @@ namespace libtorrent {
 		piece_index_t last_piece() const
 		{ return piece_index_t(m_num_pieces - 1); }
 
-		// returns a range of iterator-like objects resolving to the indices of
-		// the pieces. Is meant to be used in range-for loops to conveniently loop
-		// over all piece indices.
+		// returns an implementation-defined type that can be used as the
+		// container in a range-for loop. Where the values are the indices of all
+		// pieces in the file_storage.
 		aux::index_range<piece_index_t> piece_range() const noexcept;
 
 		// set and get the size of each piece in this torrent. This size is typically an even power

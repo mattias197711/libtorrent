@@ -336,6 +336,9 @@ namespace libtorrent {
 		// ``last_piece()`` returns the index to the last piece in the torrent and
 		// ``end_piece()`` returns the index to the one-past-end piece in the
 		// torrent
+		// ``piece_range()`` returns an implementation-defined type that can be
+		// used as the container in a range-for loop. Where the values are the
+		// indices of all pieces in the file_storage.
 		piece_index_t last_piece() const { return piece_index_t(m_files.num_pieces() - 1); }
 		piece_index_t end_piece() const
 		{
